@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<!--
+  While this schema mostly works with database prefixes, foreign key constraints
+  must be specified in raw SQL, which needs the prefixed table name.
+-->
+<schema version="0.3">
+  <table name="co_tsi_services_widgets">
+    <field name="id" type="I">
+      <key />
+      <autoincrement />
+    </field>
+    <field name="co_dashboard_widget_id" type="I">
+      <constraint>REFERENCES cm_co_dashboard_widgets(id)</constraint>
+    </field>
+    <field name="created" type="T" />
+    <field name="modified" type="T" />
+    
+    <index name="co_services_widgets_i1">
+      <col>co_dashboard_widget_id</col>
+      <unique />
+    </index>
+  </table>
+</schema>
